@@ -1,4 +1,4 @@
-DevSteinkampUs::Application.routes.draw do
+Noblog::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

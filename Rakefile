@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-DevSteinkampUs::Application.load_tasks
+Noblog::Application.load_tasks

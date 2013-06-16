@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-DevSteinkampUs::Application.config.session_store :cookie_store, :key => '_dev.steinkamp.us_session'
+Noblog::Application.config.session_store :cookie_store, :key => '_dev.steinkamp.us_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rails generate session_migration")
-# DevSteinkampUs::Application.config.session_store :active_record_store
+# Noblog::Application.config.session_store :active_record_store
