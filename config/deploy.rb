@@ -24,6 +24,7 @@ set :scm_verbose, true
 
 namespace :deploy do
   task :restart do
+    run "cd #{current_path} && #{bundle_cmd} exec rake assets:precompile"
     run "touch #{current_path}/tmp/restart.txt"
   end
 end

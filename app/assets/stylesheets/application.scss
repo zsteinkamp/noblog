@@ -28,7 +28,7 @@ footer {
 }
 header {
   line-height: 50px;
-  padding: 10px 10px 5px;
+  padding: 10px 10px 0px;
   margin-bottom: 10px;
   background: rgb(0,85,128);
   border-bottom: 4px solid rgb(0,43,64);
@@ -139,6 +139,7 @@ footer.black {
 }
 .entry .image_wrapper img {
   height:100px;
+  max-width:inherit;
 }
 .pubdate {
   text-transform:uppercase;
