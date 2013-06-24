@@ -1,0 +1,27 @@
+- nyears = 1+(@timeline[:ymax] - @timeline[:ymin])
+- npoints = 12 * nyears
+- width_pct = 100.0 * 1 / npoints
+- month_names = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+- curr_year  = params[:year]  ? params[:year].to_i  : Time.now.year.to_i
+- curr_month = params[:month] ? params[:month].to_i : Time.now.month.to_i
+.timeline
+  - pos = 0
+  - nyears.times do |yd|
+    - year = @timeline[:ymin] + yd
+    - 12.times do |mo|
+      - month = mo + 1
+      - left_pct = 100.0 * pos / npoints
+      - histo_key = "%4d-%02d" % [year,month]
+      - if mo == 0
+        %span.year{:style => "left:#{left_pct}%;"}= year
+      - width_left = "width:#{width_pct}%; left:#{left_pct}%;"
+      - histo_val = @timeline[:histo][histo_key] || 0
+      - label = "#{year} #{month_names[mo]} (#{pluralize(histo_val, "entry")})"
+      - bgcolor = ((year == curr_year && month == curr_month) ?  "#FC3" : "rgba(51,136,192,#{histo_val / @timeline[:hmax].to_f})")
+      - if (histo_val > 0)
+        = link_to({ :controller => "entry", :action => "index", :year => "%4d" % [year], :month => "%02d" % [month], :source => params[:source]}, { :style => "background-color:#{bgcolor}; #{width_left}", :class => "segment"}) do
+          %span.seg_label= label
+      - else
+        %span.segment{:style => width_left}
+          %span.seg_label= label
+      - pos += 1

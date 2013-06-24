@@ -1,0 +1,5 @@
+- if entry.thumb_url
+  .image_wrapper
+    = link_to image_tag(entry.thumb_url), entry.permalink
+%h2= entry.disp_title
+= link_to "(view in Twitter)", entry.data[:link]

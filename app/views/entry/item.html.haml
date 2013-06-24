@@ -1,0 +1,5 @@
+.entry{:style => "padding-left:0px;"}
+  .pubdate= @entry.pub_date.strftime("%Y %B %d")
+  = render_entry_item(@entry)
+%div{:style => "margin-top:1em;"}
+  = render :partial => "fb_comments"

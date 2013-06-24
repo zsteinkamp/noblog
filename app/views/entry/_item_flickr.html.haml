@@ -1,0 +1,17 @@
+- @title = entry.disp_title
+%h2= link_to @title, :action => "single", :entry_id => params[:entry_id]
+%div{:style => "text-align:center;"}
+  %div{:style => "float:left"}
+    - if item_id > 0
+      = link_to "&laquo; Previous Photo".html_safe, :action => "item", :entry_id => params[:entry_id], :item_id => item_id - 1, :junk => params[:junk]
+  %div{:style => "float:right"}
+    - if item_id < (@entry.data[:photos].count - 1)
+      = link_to "Next Photo &raquo;".html_safe, :action => "item", :entry_id => params[:entry_id], :item_id => item_id + 1, :junk => params[:junk]
+.clearfix
+.photobox{:style => "text-align:center; margin-top:15px;"}
+  - photo = @entry.data[:photos][item_id]
+  = link_to @entry.data[:link].gsub(%r{/sets/}, "/#{photo[:id]}/sizes/l/in/set-"), :class => "photo" do
+    = image_tag photo[:thumb_url].gsub(/_s.jpg/, "_c.jpg"), :class => "photo"
+  %p.photo_title= photo[:title]
+  - if photo[:description]
+    %p.photo_desc= photo[:description]

@@ -1,0 +1,8 @@
+- if entry.thumb_url
+  .image_wrapper
+    = link_to image_tag(entry.thumb_url), entry.data[:permalink_url]
+%h2= link_to entry.disp_title, entry.data[:permalink_url]
+%object{:height => "81", :width => "480"}
+  %param{:name => "movie", :value => "http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F#{entry.uid}&amp;show_comments=true&amp;auto_play=false&amp;color=ff7700"}/
+  %param{:name => "allowscriptaccess", :value => "always"}/
+  %embed{:allowscriptaccess => "always", :height => "81", :src => "http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F#{entry.uid}&amp;show_comments=true&amp;auto_play=false&amp;color=ff7700", :type => "application/x-shockwave-flash", :width => "480"}

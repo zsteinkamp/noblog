@@ -1,0 +1,21 @@
+- @title = entry.disp_title
+:css
+  ul.thumbnails {
+    margin-left:0;
+  }
+  ul.thumbnails li {
+    float:left;
+    list-style-type:none;
+    margin:0 10px 10px 0;
+  }
+%h2= @title
+- unless entry.data[:description].blank?
+  %div{:style => "margin-bottom:20px;"}
+    = auto_link(entry.data[:description].gsub(/\n\s*\n/, "<br/><br/>"))
+%ul.thumbnails
+  - entry.data[:photos].each_with_index do |photo, idx|
+    %li
+      = link_to image_tag(photo[:thumb_url].gsub(/_s.jpg/, "_q.jpg"), :width => "150", :height => "150"), url_for({ :action => "item", :item_id => idx }), { :title => photo[:title] }
+.clearfix
+%div{:style => "margin-top:20px;"}
+  = link_to("View in Flickr", entry.data[:link])

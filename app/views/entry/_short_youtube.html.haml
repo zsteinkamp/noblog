@@ -1,0 +1,4 @@
+.image_wrapper
+  = link_to image_tag(entry.thumb_url), entry.permalink
+%h2= link_to entry.disp_title, entry.permalink
+= entry.data[:description]

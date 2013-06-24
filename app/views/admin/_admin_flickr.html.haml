@@ -1,0 +1,10 @@
+= hidden_field_tag :addl_fields, "link,excerpt,description"
+%tr
+  %th Link
+  %td= text_field_tag :link, @entry.data[:link]
+%tr
+  %th Excerpt
+  %td= text_area_tag :excerpt, @entry.data[:excerpt]
+%tr
+  %th Description
+  %td= text_area_tag :description, @entry.data[:description]

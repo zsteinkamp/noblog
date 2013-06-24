@@ -1,0 +1,32 @@
+- if @num_pages > 1
+  .paginator
+    Page:&nbsp;
+    - curr_page = params[:page].to_i
+    - if curr_page > 1
+      = link_to "&laquo;", { :controller => "entry", :action => "index", :page => curr_page - 1 }
+    - else
+      = link_to "&laquo;", { :controller => "entry", :action => "index", :page => curr_page }, :class => "sel"
+    - if curr_page < @num_pages
+      = link_to "&raquo;", { :controller => "entry", :action => "index", :page => curr_page + 1 }
+    - else
+      = link_to "&raquo;", { :controller => "entry", :action => "index", :page => curr_page }, :class => "sel"
+    - if @num_pages > show_pages
+      - min_page = [ curr_page - (show_pages / 2.0).floor, 1 ].max
+      - max_page = min_page + show_pages
+      - if max_page > @num_pages
+        - max_page = @num_pages
+        - min_page = max_page - show_pages
+    - else
+      - min_page = 1
+      - max_page = @num_pages
+    - if min_page > 1
+      = link_to "1", { :controller => "entry", :action => "index", :page => 1 }
+      - if min_page > 2
+        = link_to "...", { :controller => "entry", :action => "index", :page => min_page - 1 }
+    - (min_page..max_page).each do |page|
+      = link_to page, { :controller => "entry", :action => "index", :page => page }, :class => (page == curr_page ? "sel" : "")
+    - if max_page < @num_pages
+      - if max_page < @num_pages - 1
+        = link_to "...", { :controller => "entry", :action => "index", :page => max_page + 1 }
+      = link_to @num_pages, { :controller => "entry", :action => "index", :page => @num_pages }
+    \&nbsp;

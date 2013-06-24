@@ -1,0 +1,6 @@
+- @title = entry.disp_title
+%h3= auto_link(@title)
+= link_to "(view in Twitter)", entry.data[:link]
+- if entry.thumb_url
+  %div{:style => "text-align:center;margin-top:20px;"}
+    = image_tag(entry.thumb_url)

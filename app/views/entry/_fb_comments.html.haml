@@ -1,0 +1,3 @@
+#fb-root
+%script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
+%fb:comments{:href => request.url.split("?").first, :num_posts => "25"}

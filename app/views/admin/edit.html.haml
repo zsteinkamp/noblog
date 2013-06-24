@@ -1,0 +1,21 @@
+= link_to "<<< Back to Listing", :controller => "admin", :action => "index"
+= form_tag :controller => "admin", :action => "edit" do
+  = hidden_field_tag :new, params[:new]
+  %table
+    %tr
+      %th Disabled
+      %td= check_box_tag :disabled, "1", @entry.disabled
+    %tr
+      %th UID
+      %td= @entry.uid
+    %tr
+      %th Pub Date
+      %td= text_field_tag :pub_date, @entry.pub_date
+    %tr
+      %th Title
+      %td= text_field_tag :title, @entry.data[:title]
+    = render(:partial => "admin_#{@entry.source}")
+    %tr
+      %th &nbsp;
+      %td
+        = submit_tag

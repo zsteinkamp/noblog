@@ -1,0 +1,16 @@
+.typepicker
+  = link_to_if !params[:source].nil?, "All", :source => nil
+  - @sources.each do |source|
+    \- #{link_to_if params[:source] != source.source, source.source.titleize, :source => source.source, :year => params[:year], :month => params[:month]}
+= render :partial => "timeline"
+- if @entries && @entries.length > 0
+  %ul.entries
+    - @entries.each do |entry|
+      %li{:class => "entry #{entry.source}"}
+        - if entry.pub_date
+          .pubdate= entry.pub_date.strftime("%Y %B %d")
+        = render_entry_short(entry)
+        .clearfix
+- else
+  %h2{:style => "text-align:center;padding:50px 0;"}
+    %em There is nothing to display...

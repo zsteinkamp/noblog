@@ -1,0 +1,203 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+  background: #ccc;
+}
+.container {
+  background: #fdfdfd;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+}
+header,
+footer {
+  color: #ccc;
+  background-color: #222;
+  a:hover {
+    color: #fc3;
+  }
+}
+header {
+  line-height: 50px;
+  padding: 10px 10px 5px;
+  margin-bottom: 10px;
+  background: rgb(0,85,128);
+  border-bottom: 4px solid rgb(0,43,64);
+  a.brand {
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+  }
+  a.brand:hover {
+    text-decoration: none;
+  }
+  .navbar-form {
+    text-align: right;
+  }
+}
+footer {
+  border-top: 4px solid #222;
+  padding-bottom: 1em;
+  h4 {
+    font-size:1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0;
+    font-weight: normal;
+  }
+}
+footer.black {
+  padding: 1em 0;
+  background: black;
+}
+.row.main-content {
+  padding-bottom:30px;
+}
+.typepicker {
+  text-align:center;
+  padding-bottom:20px;
+  text-transform: uppercase;
+  font-size:12px;
+}
+.timeline {
+  position: relative;
+  height:33px;
+  margin:10px 0;
+}
+.timeline .year {
+  position:absolute;
+  height:38px;
+  top:-18px;
+  border-left:1px solid #ccc;
+  padding-left:5px;
+  font-size:9px;
+}
+.timeline .segment {
+  position:absolute;
+  height:0px;
+  padding-top:20px;
+  overflow:hidden;
+  white-space:nowrap;
+  z-index:1;
+  font-size:12px;
+}
+.timeline .segment:hover {
+  overflow:visible;
+}
+.timeline a.segment:hover {
+  background-color:#F66 !important;
+}
+.timeline .segment .seg_label {
+  background-color:#FFF;
+  padding:3px;
+}
+.timeline .segment .seg_label:hover {
+  text-decoration:none;
+}
+
+.entries {
+  padding-left: 0;
+  margin-left: 0;
+}
+.entry {
+  list-style-type:none;
+  padding-left:24px;
+  margin-left:0;
+  background:transparent no-repeat left top;
+  color:#333;
+}
+.entry-index .entry {
+  padding-top:20px;
+  border-top:2px solid #eee;
+  color:#666;
+}
+.admin-index .entry {
+  margin-bottom:5px;
+}
+.entries .entry {
+  background-position: left 22px;
+  margin-bottom:40px;
+}
+.entry .image_wrapper {
+  margin-left:10px;
+  float:right;
+  width:100px;
+  height:100px;
+  background:black;
+  text-align:center;
+  vertical-align:center;
+  overflow:hidden;
+}
+.entry .image_wrapper img {
+  height:100px;
+}
+.pubdate {
+  text-transform:uppercase;
+  color:#666;
+}
+.entry.post {
+  background-image: image-url("site_icons/post.png");
+}
+.entry.flickr {
+  background-image: image-url("site_icons/flickr.png");
+}
+.entry.quicktime {
+  background-image: image-url("quicktime.png");
+}
+.entry.youtube {
+  background-image: image-url("site_icons/youtube.png");
+}
+.entry.vimeo {
+  background-image: image-url("site_icons/vimeo.png");
+}
+.entry.vimeo p img {
+  display:none;
+}
+.entry.soundcloud {
+  background-image: image-url("site_icons/soundcloud.png");
+}
+.entry.twitter {
+  background-image: image-url("site_icons/twitter.png");
+}
+.entry.twitter h2 {
+  font-weight:normal;
+  font-size:16px;
+  line-height:24px;
+}
+
+.admin-edit input[type=text] { 
+  width:500px; 
+}
+.admin-edit textarea { 
+  width:500px; 
+  height:150px; 
+}
+img.photo {
+  border:40px solid black;
+  margin-left:-40px;
+}
+img.alignright { /* carryover from wordpress */
+  float:right;
+  margin:0px 0 20px 20px;
+}
+img.alignleft { /* carryover from wordpress */
+  float:left;
+  margin:0px 20px 20px 0;
+}
+.photo_title {
+  font-weight:bold;
+  text-align:left;
+  font-size:120%;
+}
+.photo_desc {
+  text-align:left;
+}

@@ -1,0 +1,11 @@
+= link_to "<<< Back to Listing", :controller => "admin", :action => "index"
+- form_tag :controller => "admin", :action => "photo" do
+  = hidden_field_tag :new, params[:new]
+  %table
+    %tr
+      %th Photo URL
+      %td= text_field_tag :url
+    %tr
+      %th &nbsp;
+      %td
+        = submit_tag

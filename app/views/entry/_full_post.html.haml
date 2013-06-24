@@ -1,0 +1,3 @@
+- @title = entry.disp_title
+%h2= @title
+= auto_link(entry.data[:content].gsub(/\n\s*\n/, "<br/><br/>").html_safe)

@@ -1,0 +1,189 @@
+:css
+  #sweat_stats tr td {
+    text-align: right;
+  }
+= javascript_include_tag "jquery-1.4.2.min"
+- @title = "Sweat Calculator"
+%h2 Sweat Calculator
+%p
+  Use this calculator to understand how much fluid and minerals you lose in sweat.  The idea is to weigh yourself before and after exercising in a controlled way (no drinking, no eating, no peeing between weigh-ins).  The weight difference therefore is the amount of fluid lost in sweat.
+  %p
+    %p
+      %strong Instructions:
+      %ul
+        %li Drink some water as your normally would just before exercising.
+        %li
+          Weigh yourself in the nude just before dressing to exercise.
+          %li Go sweat!
+          %li Come back home and take a shower.  Try not to pee.
+          %li Dry off, then weigh yourself again.
+      \&nbsp;
+      %form{:action => "#"}
+        %table
+          %tr
+            %td
+              %label{:for => "weight_before"} Weight Before
+            %td
+              %input#weight_before{:value => "190.2"}/
+          %tr
+            %td
+              %label{:for => "consumed"} Fluid Consumed (ozs)
+            %td
+              %input#consumed{:value => "0"}/
+          %tr
+            %td
+              %label{:for => "weight_after"} Weight After
+            %td
+              %input#weight_after{:value => "186.6"}/
+          %tr
+            %td
+              %label{:for => "time_spent"} Time (hh:mm)
+            %td
+              %input#time_spent{:value => "1:08"}/
+          %tr
+            %td
+              %label{:for => "miles"} Distance (miles)
+            %td
+              %input#miles{:value => "8.0"}/
+          %tr
+            %td &nbsp;
+            %td
+              %input#btn_calc{:type => "button", :value => "Calculate Sweat"}/
+      \&nbsp;
+      %table#sweat_stats
+        %tr
+          %th{:width => "25%"} &nbsp;
+          %th{:width => "25%"} Amount
+          %th{:width => "25%"} Amt/Hour
+          %th{:width => "25%"} Amt/Mile
+        %tr
+          %th{:style => "text-align:left;"} Sweat (lbs)
+          %td
+            %span#fluid_lbs 0
+            lbs
+          %td
+            %span#fluid_lbs_hr 0
+            lbs/hr
+          %td
+            %span#fluid_lbs_mi 0
+            lbs/mi
+        %tr
+          %th{:style => "text-align:left;"} Sweat (ozs)
+          %td
+            %span#fluid_ozs 0
+            ozs
+          %td
+            %span#fluid_ozs_hr 0
+            ozs/hr
+          %td
+            %span#fluid_ozs_mi 0
+            ozs/mi
+        %tr
+          %th{:style => "text-align:left;"} Sweat (liters)
+          %td
+            %span#fluid_ltrs 0
+            liters
+          %td
+            %span#fluid_ltrs_hr 0
+            liters/hr
+          %td
+            %span#fluid_ltrs_mi 0
+            liters/mi
+        %tr
+          %th{:style => "text-align:left;"} Sodium
+          %td
+            %span#na 0
+            mg
+          %td
+            %span#na_hr 0
+            mg/hr
+          %td
+            %span#na_mi 0
+            mg/mi
+        %tr
+          %th{:style => "text-align:left;"} Potassium
+          %td
+            %span#k 0
+            mg
+          %td
+            %span#k_hr 0
+            mg/hr
+          %td
+            %span#k_mi 0
+            mg/mi
+        %tr
+          %th{:style => "text-align:left;"} Calcium
+          %td
+            %span#ca 0
+            mg
+          %td
+            %span#ca_hr 0
+            mg/hr
+          %td
+            %span#ca_mi 0
+            mg/mi
+        %tr
+          %th{:style => "text-align:left;"} Magnesium
+          %td
+            %span#mg 0
+            mg
+          %td
+            %span#mg_hr 0
+            mg/hr
+          %td
+            %span#mg_mi 0
+            mg/mi
+      \&nbsp;
+      %p
+        The figures above are "typical".  If you are acclimated to heat, then you will likely lose less sodium.  If you are not acclimated and are running hard in hot weather, you may lose more.
+      %p
+        Losing more than a couple grams of sodium can lead to cramping and worse.  Eat salty foods along the way or take salt / electrolyte capsules periodically to maintain a healthy salinity.
+      :javascript
+        $("#btn_calc").click( function() {
+          var consumed = parseInt($("#consumed").val());
+          var weight_before = parseFloat($("#weight_before").val());
+          var weight_after = parseFloat($("#weight_after").val()) - (consumed / 16.0);
+          var ts_arr = $("#time_spent").val().split(":");
+          var time_spent_hrs = parseFloat(ts_arr[0]) + (parseFloat(ts_arr[1]) / 60.0);
+          var miles = parseFloat($("#miles").val());
+
+          var lbs_lost = weight_before - weight_after;
+          var ozs_lost = 16.0 * lbs_lost;
+          var liters_lost = ozs_lost / 33.8140226;
+
+          var liters_hr = liters_lost / time_spent_hrs;
+          var liters_mi = liters_lost / miles;
+
+          $("#fluid_lbs").html(lbs_lost.toFixed(1));
+          $("#fluid_ozs").html(ozs_lost.toFixed(1));
+          $("#fluid_ltrs").html(liters_lost.toFixed(1));
+
+          $("#fluid_lbs_hr").html((lbs_lost / time_spent_hrs).toFixed(1));
+          $("#fluid_ozs_hr").html((ozs_lost / time_spent_hrs).toFixed(1));
+          $("#fluid_ltrs_hr").html((liters_hr).toFixed(1));
+
+          $("#fluid_lbs_mi").html((lbs_lost / miles).toFixed(1));
+          $("#fluid_ozs_mi").html((ozs_lost / miles).toFixed(1));
+          $("#fluid_ltrs_mi").html((liters_mi).toFixed(1));
+
+          var mg_l_na = 900;
+          var mg_l_k  = 200;
+          var mg_l_ca = 15;
+          var mg_l_mg = 1.3;
+
+          $("#na").html(parseInt(liters_lost * mg_l_na));
+          $("#na_hr").html(parseInt(liters_hr * mg_l_na));
+          $("#na_mi").html(parseInt(liters_mi * mg_l_na));
+
+          $("#k").html(parseInt(liters_lost * mg_l_k));
+          $("#k_hr").html(parseInt(liters_hr * mg_l_k));
+          $("#k_mi").html(parseInt(liters_mi * mg_l_k));
+
+          $("#ca").html(parseInt(liters_lost * mg_l_ca));
+          $("#ca_hr").html(parseInt(liters_hr * mg_l_ca));
+          $("#ca_mi").html(parseInt(liters_mi * mg_l_ca));
+
+          $("#mg").html(parseFloat(liters_lost * mg_l_mg).toFixed(1));
+          $("#mg_hr").html(parseFloat(liters_hr * mg_l_mg).toFixed(1));
+          $("#mg_mi").html(parseFloat(liters_mi * mg_l_mg).toFixed(1));
+        });

@@ -1,0 +1,22 @@
+%h3.comment-header Add a Comment
+- form_tag url_for(:controller => "comment", :action => "create"), :id => "comment_form" do
+  = hidden_field_tag :done, "#{request.request_uri}#comments"
+  = hidden_field_tag :entry_id, @entry.id
+  %table
+    %tr
+      %th Your Name
+      %td= text_field_tag :author, "", :size => 48
+    %tr
+      - rnum = rand(999)
+      %th
+        Type "#{rnum}"
+      %td
+        = hidden_field_tag :rnum_should, rnum
+        = text_field_tag :rnum_entered, "", :size => 3
+        (cuts down on spam)
+    %tr
+      %th Comment
+      %td= text_area_tag :comment, "", :rows => 5, :cols => 50
+    %tr
+      %th &nbsp;
+      %td= submit_tag "Save Comment"

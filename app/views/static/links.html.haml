@@ -1,0 +1,33 @@
+:css
+  ul { margin-bottom:20px; }
+%div{:style => "float:right; width:45%;"}
+  %h2 nobot.elsewhere
+  %ul
+    %li= link_to "Facebook", "http://www.facebook.com/thenobot"
+    %li= link_to "Flickr", "http://www.flickr.com/photos/thenobot/"
+    %li= link_to "Twitter", "http://www.twitter.com/thenobot"
+    %li= link_to "Vimeo", "http://vimeo.com/thenobot/videos"
+    %li= link_to "Youtube", "http://www.youtube.com/user/thenobot"
+  %h2 nobot.carstuff
+  %ul
+    %li= link_to "E46 M3 Wheel Size Calculator", "http://thenobot.org/apps/wheel_size.php"
+    %li= link_to "Infineon Novice Notes", :controller => "static", :action => "index", :page => "infineon_novice"
+    %li= link_to "Laguna Seca Novice Notes", :controller => "static", :action => "index", :page => "laguna_seca_novice"
+    %li= link_to "Thunderhill Novice Notes", :controller => "static", :action => "index", :page => "thunderhill_novice"
+%div{:style => "float:left; width:45%;"}
+  %h2 nobot.about
+  %ul
+    %li= link_to "Resume", :controller => "static", :action => "index", :page => "resume"
+    %li= link_to "Hikes", :controller => "static", :action => "index", :page => "hikes"
+    %li= link_to "About this site", :controller => "static", :action => "index", :page => "noblog"
+  %h2 not.nobot
+  %ul
+    %li= link_to "Aperture Capital", "http://aperturecapital.com"
+    %li= link_to "Blue Corduroy", "http://bluecorduroysewing.blogspot.com/"
+    %li= link_to "Dipity", "http://www.dipity.com/"
+    %li= link_to "Eat.This.Food", "http://www.eatthisfood.com/"
+    %li= link_to "Groupon", "http://www.groupon.com/"
+    %li= link_to "Mimiess", "http://www.mimiess.com/"
+    %li= link_to "Symantec Health", "https://www.symantechealth.com.com/"
+    %li
+      Awesome $8.95/mo hosting by #{link_to "DreamHost", "http://www.dreamhost.com/r.cgi?37017"}

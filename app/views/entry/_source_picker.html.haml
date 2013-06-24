@@ -1,0 +1,6 @@
+.source-picker
+  = link_to "All Sources", {:source => nil, :page => nil }, :class => "all #{params[:source].blank? ? "sel" : ""}"
+  - @sources.each do |source|
+    - source_name = source.source
+    = link_to source_name.titleize, { :source => source_name, :page => nil }, :class => "#{source_name} #{params[:source] == source_name ? "sel" : ""}"
+.clearfix

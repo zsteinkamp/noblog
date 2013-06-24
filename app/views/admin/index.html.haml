@@ -1,0 +1,8 @@
+%div{:style => "margin-bottom:20px;"}
+  = link_to "+ New Post", :controller => "admin", :action => "edit", :new => "1"
+%ul
+  - @entries.each do |entry|
+    %li{:class => "entry #{entry.source}"}
+      = link_to "FB", :action => "publish_to_fb", :id => entry.id
+      = entry.disabled ? "[DISABLED]" : ""
+      = link_to entry.data[:title], :controller => "admin", :action => "edit", :id => entry.id
