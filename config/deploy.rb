@@ -10,6 +10,7 @@ set :deploy_to, applicationdir
 set :deploy_via, :export
 set :use_sudo, :false
 set :bundle_cmd, '/usr/lib/ruby/gems/1.8/bin/bundle'
+default_run_options[:pty] = true
 
 set :scm, :git
 

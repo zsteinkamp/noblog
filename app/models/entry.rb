@@ -5,6 +5,8 @@ class Entry < ActiveRecord::Base
   after_save :clear_timeline_cache
   serialize :data, Hash
 
+  attr_accessible :data, :pub_date, :source
+
   def clear_timeline_cache
     TimelineCache.delete_all
   end
