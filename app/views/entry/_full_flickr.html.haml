@@ -11,7 +11,7 @@
 %h2= @title
 - unless entry.data[:description].blank?
   %div{:style => "margin-bottom:20px;"}
-    = auto_link(entry.data[:description].gsub(/\n\s*\n/, "<br/><br/>"))
+    = auto_link(entry.data[:description].gsub(/\n\s*\n/, "<br/><br/>").html_safe)
 %ul.thumbnails
   - entry.data[:photos].each_with_index do |photo, idx|
     %li

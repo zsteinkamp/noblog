@@ -1,5 +1,5 @@
 - @title = entry.disp_title
-%h3= auto_link(@title)
+%h3= auto_link(@title.html_safe)
 = link_to "(view in Twitter)", entry.data[:link]
 - if entry.thumb_url
   %div{:style => "text-align:center;margin-top:20px;"}
