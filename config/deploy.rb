@@ -1,7 +1,7 @@
 require 'bundler/capistrano'
 
 set :user, "ddstnkmp"
-set :domain, "hartke.dreamhost.com"
+set :domain, "beehive.dreamhost.com"
 set :project, "noblog"
 set :application, "steinkamp.us"
 set :applicationdir, "/home/#{user}/#{application}"

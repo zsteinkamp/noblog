@@ -18,7 +18,7 @@ class Entry < ActiveRecord::Base
   end
 
   def permalink(absolute = false)
-    "#{absolute ? SITE_BASE : ""}/#{self.id}/#{self.data[:title].downcase.gsub(/[^a-z0-9]/,"-").gsub(/-+/,"-").gsub(/^-/,"").gsub(/-$/,"")}"
+    "#{absolute ? "http://steinkamp.us" : ""}/#{self.id}/#{self.data[:title].downcase.gsub(/[^a-z0-9]/,"-").gsub(/-+/,"-").gsub(/^-/,"").gsub(/-$/,"")}"
   end
 
   def fb_link
