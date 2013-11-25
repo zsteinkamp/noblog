@@ -5,7 +5,7 @@ class Entry < ActiveRecord::Base
   after_save :clear_timeline_cache
   serialize :data, Hash
 
-  attr_accessible :data, :pub_date, :source
+  attr_accessible :data, :pub_date, :source, :uid
 
   def clear_timeline_cache
     TimelineCache.delete_all
@@ -30,6 +30,7 @@ class Entry < ActiveRecord::Base
   end
 
   def publish_to_fb
+    return true # temp disable
     unless ENV['NO_FB']
       result = PublishFB.new.publish(self)
       unless result.class == Net::HTTPOK

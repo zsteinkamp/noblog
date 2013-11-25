@@ -1,0 +1,7 @@
+#!/bin/env ruby script/runner
+
+YAML.load_file("config/sources.yml").each do |key, data|
+  puts "Doing #{key}..."
+  klass = "Entry#{data[:source].capitalize}".constantize
+  puts klass.add_new_entries(data).join "\n"
+end

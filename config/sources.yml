@@ -1,0 +1,21 @@
+thenobot_youtube:
+  :source: youtube
+  :username: thenobot
+
+thenobot_vimeo:
+  :source: vimeo
+  :username: thenobot
+
+thenobot_flickr:
+  :source: flickr
+  :user_id: "74677593@N00"
+  :api_key: "2b78ee62a1027fb4e72ce9c1d935a0e8"
+
+#thenobot_twitter:
+#  :source: twitter
+#  :user_id: 6142272
+
+thenobot_soundcloud:
+  :source: soundcloud
+  :user_id: thenobot
+  :api_key: apigee
