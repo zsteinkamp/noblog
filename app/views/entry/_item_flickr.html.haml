@@ -11,7 +11,7 @@
 .photobox{:style => "text-align:center; margin-top:15px;"}
   - photo = @entry.data[:photos][item_id]
   = link_to @entry.data[:link].gsub(%r{/sets/}, "/#{photo[:id]}/sizes/l/in/set-"), :class => "photo" do
-    = image_tag photo[:thumb_url].gsub(/_s.jpg/, "_c.jpg"), :class => "photo"
+    = image_tag photo[:thumb_url].gsub(/_s.jpg/, "_b.jpg"), :class => "photo"
   %p.photo_title= photo[:title]
   - if photo[:description]
     %p.photo_desc= photo[:description]
