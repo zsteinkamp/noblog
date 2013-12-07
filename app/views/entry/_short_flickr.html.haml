@@ -2,4 +2,4 @@
   = link_to image_tag(entry.data[:primary_photo_url]), entry.permalink
 %h2= link_to entry.disp_title, entry.permalink
 = entry.data[:excerpt].blank? ? "#{strip_tags(entry.data[:description] || "")[0..255]}..." : entry.data[:excerpt]
-(#{pluralize(entry.data[:num_photos], "photo")})
+(#{pluralize(entry.data[:photos].count, "photo")})
