@@ -12,15 +12,15 @@
     .container
       %header
         .row
-          .span5.offset1
+          .span4.offset2
             %a.brand{ :href => "/" } Steinkamp.us
-          .span5
+          .span4
             %form.navbar-form{ :method => "GET", :action => "" }
               = text_field_tag :search, params[:search], { :placeholder => "Keyword" }
               = submit_tag "Search"
           .span1
       .row.main-content
-        .span10.offset1
+        .span8.offset2
           = yield
       %footer
         .row
