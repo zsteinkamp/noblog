@@ -1,0 +1,20 @@
+.image_wrapper
+  = link_to image_tag(entry.thumb_url), entry.data[:link]
+%h2
+  = entry.data[:activity_type]
+  \-
+  = link_to entry.disp_title, entry.data[:link]
+= "#{entry.data[:location_city]}, #{entry.data[:location_state]}"
+%br
+Distance:
+%strong= "%.1f" % [entry.data[:distance] * 0.000621371]
+miles
+|
+Time:
+%strong= humanize_secs(entry.data[:elapsed_time])
+|
+Elevation Gain:
+%strong= (entry.data[:total_elevation_gain] * 3.28084).to_i
+feet
+
+

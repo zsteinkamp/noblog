@@ -18,4 +18,13 @@ module ApplicationHelper
       render_entry(entry)
     end
   end
+
+  def humanize_secs(secs)
+    [[60, :second], [60, :minute], [24, :hour], [1000, :day]].map{ |count, name|
+      if secs > 0
+        secs, n = secs.divmod(count)
+        pluralize n.to_i, name.to_s
+      end
+    }.compact.reverse.join(' ')
+  end
 end

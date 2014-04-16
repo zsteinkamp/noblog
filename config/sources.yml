@@ -19,3 +19,7 @@ thenobot_soundcloud:
   :source: soundcloud
   :user_id: thenobot
   :api_key: apigee
+
+thenobot_strava:
+  :source: strava
+  :api_key: "9820bc2d12991a05b143238099d43400dce018e3"
