@@ -11,8 +11,9 @@
  *= require_tree .
  *= require_self
  */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
-@import url(http://fonts.googleapis.com/css?family=Cantata+One);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
 body {
   font-family:"Open Sans","Helvetica Neue",sans-serif;
 }
@@ -31,7 +32,8 @@ header {
   padding: 10px 0px 0px;
   margin-bottom: 10px;
   a.brand {
-    font-size: 2.5em;
+    font-family:"Permanent Marker",sans-serif;
+    font-size: 40px;
     font-weight:bold;
   }
   .navbar-form {
@@ -113,13 +115,11 @@ footer.black {
   background:transparent no-repeat left top;
   color:#333;
   h2 {
-    font-family:"Cantata One",sans-serif;
+    font-family:"Bree Serif",sans-serif;
   }
 }
 .entry-single .entry {
-  letter-spacing: .01rem;
-  font-weight: 400;
-  font-style: normal;
+  font-size:18px;
   line-height: 1.5;
 }
 .entry-index .entry {
