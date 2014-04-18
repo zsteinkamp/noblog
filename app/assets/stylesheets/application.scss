@@ -12,18 +12,13 @@
  *= require_self
  */
 body {
-  xbackground: #ccc;
+  font-family:"Open Sans","Helvetica Neue",sans-serif;
 }
 .container {
-  xbackground: #fdfdfd;
-  xbox-shadow: 0px 0px 20px rgba(0,0,0,0.2);
 }
 header,
 footer {
-  xcolor: #ccc;
-  xbackground-color: #222;
   a:hover {
-    xcolor: #fc3;
   }
 }
 a:hover {
@@ -33,19 +28,15 @@ header {
   line-height: 50px;
   padding: 10px 0px 0px;
   margin-bottom: 10px;
-  xbackground: rgb(0,85,128);
-  xborder-bottom: 4px solid rgb(0,43,64);
   a.brand {
     font-size: 2.5em;
-    xcolor: white;
-    xtext-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+    font-weight:bold;
   }
   .navbar-form {
     text-align: right;
   }
 }
 footer {
-  xborder-top: 4px solid #222;
   padding-bottom: 1em;
   h4 {
     font-size:1.5em;
@@ -57,7 +48,6 @@ footer {
 }
 footer.black {
   padding: 1em 0;
-  xbackground: black;
 }
 .row.main-content {
   padding-bottom:30px;
