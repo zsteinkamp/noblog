@@ -11,7 +11,7 @@
  *= require_tree .
  *= require_self
  */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
 @import url(http://fonts.googleapis.com/css?family=Cantata+One);
 body {
   font-family:"Open Sans","Helvetica Neue",sans-serif;
@@ -33,7 +33,6 @@ header {
   a.brand {
     font-size: 2.5em;
     font-weight:bold;
-    font-family:"Cantata One",sans-serif;
   }
   .navbar-form {
     text-align: right;
@@ -101,7 +100,6 @@ footer.black {
   padding-left: 0;
   margin-left: 0;
   .entry h2 {
-    font-family:"Cantata One",sans-serif;
     font-weight:normal;
     font-size:24px;
     line-height:30px;
@@ -114,13 +112,14 @@ footer.black {
   margin-left:0;
   background:transparent no-repeat left top;
   color:#333;
+  h2 {
+    font-family:"Cantata One",sans-serif;
+  }
 }
 .entry-single .entry {
-  xfont-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
   letter-spacing: .01rem;
   font-weight: 400;
   font-style: normal;
-  xfont-size: 22px;
   line-height: 1.5;
 }
 .entry-index .entry {
