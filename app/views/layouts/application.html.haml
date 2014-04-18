@@ -10,59 +10,61 @@
     = csrf_meta_tags
   %body{ :class => "#{params[:controller]}-#{params[:action]}" }
     .container
-      %header
-        .row
-          .span4.offset2
-            %a.brand{ :href => "/" } Steinkamp.us
-          .span4
-            %form.navbar-form{ :method => "GET", :action => "" }
-              = text_field_tag :search, params[:search], { :placeholder => "Keyword" }
-              = submit_tag "Search"
-          .span1
+      - unless @no_header_footer
+        %header
+          .row
+            .span4.offset2
+              %a.brand{ :href => "/" } Steinkamp.us
+            .span4
+              %form.navbar-form{ :method => "GET", :action => "" }
+                = text_field_tag :search, params[:search], { :placeholder => "Keyword" }
+                = submit_tag "Search"
+            .span1
       .row.main-content
         .span8.offset2
           = yield
-      %footer
-        .row
-          .span5.offset2
-            %h4 elsewhere
-            %ul
-              %li= link_to "Facebook", "http://www.facebook.com/thenobot"
-              %li= link_to "Flickr", "http://www.flickr.com/photos/thenobot/"
-              %li= link_to "Strava", "http://app.strava.com/athletes/1752986"
-              %li= link_to "Twitter", "http://www.twitter.com/thenobot"
-              %li= link_to "Vimeo", "http://vimeo.com/thenobot/videos"
-              %li= link_to "Youtube", "http://www.youtube.com/user/thenobot"
-              %li= link_to "360.io", "http://occipital.com/user/9608-221710/zack-steinkamp"
-            %h4 carstuff
-            %ul
-              %li= link_to "Infineon Novice Notes", :controller => "static", :action => "index", :page => "infineon_novice"
-              %li= link_to "Laguna Seca Novice Notes", :controller => "static", :action => "index", :page => "laguna_seca_novice"
-              %li= link_to "Thunderhill Novice Notes", :controller => "static", :action => "index", :page => "thunderhill_novice"
-          .span4
-            %h4 more
-            %ul
-              %li= link_to "Resume", :controller => "static", :action => "index", :page => "resume"
-              %li= link_to "Hikes/Runs", :controller => "static", :action => "index", :page => "hikes"
-              %li= link_to "Sweat Calculator", :controller => "static", :action => "index", :page => "sweat"
-              %li= link_to "About this site", :controller => "static", :action => "index", :page => "noblog"
-            %h4 others
-            %ul
-              %li= link_to "Aperture Capital", "http://aperturecapital.com"
-              %li= link_to "Blue Corduroy", "http://bluecorduroysewing.blogspot.com/"
-              %li= link_to "Dipity", "http://www.dipity.com/"
-              %li= link_to "Eat.This.Food", "http://www.eatthisfood.com/"
-              %li= link_to "Groupon", "http://www.groupon.com/"
-              %li= link_to "Mimiess", "http://www.mimiess.com/"
-          .span1
-      %footer.black
-        .row
-          .span6.offset1
-            Awesome $8.95/mo hosting by
-            = link_to "DreamHost", "http://www.dreamhost.com/r.cgi?37017"
-          .span3.pull-right
-            Powered by
-            = link_to "noblog", :controller => "static", :action => "index", :page => "noblog"
+      - unless @no_header_footer
+        %footer
+          .row
+            .span5.offset2
+              %h4 elsewhere
+              %ul
+                %li= link_to "Facebook", "http://www.facebook.com/thenobot"
+                %li= link_to "Flickr", "http://www.flickr.com/photos/thenobot/"
+                %li= link_to "Strava", "http://app.strava.com/athletes/1752986"
+                %li= link_to "Twitter", "http://www.twitter.com/thenobot"
+                %li= link_to "Vimeo", "http://vimeo.com/thenobot/videos"
+                %li= link_to "Youtube", "http://www.youtube.com/user/thenobot"
+                %li= link_to "360.io", "http://occipital.com/user/9608-221710/zack-steinkamp"
+              %h4 carstuff
+              %ul
+                %li= link_to "Infineon Novice Notes", :controller => "static", :action => "index", :page => "infineon_novice"
+                %li= link_to "Laguna Seca Novice Notes", :controller => "static", :action => "index", :page => "laguna_seca_novice"
+                %li= link_to "Thunderhill Novice Notes", :controller => "static", :action => "index", :page => "thunderhill_novice"
+            .span4
+              %h4 more
+              %ul
+                %li= link_to "Resume", :controller => "static", :action => "index", :page => "resume"
+                %li= link_to "Hikes/Runs", :controller => "static", :action => "index", :page => "hikes"
+                %li= link_to "Sweat Calculator", :controller => "static", :action => "index", :page => "sweat"
+                %li= link_to "About this site", :controller => "static", :action => "index", :page => "noblog"
+              %h4 others
+              %ul
+                %li= link_to "Aperture Capital", "http://aperturecapital.com"
+                %li= link_to "Blue Corduroy", "http://bluecorduroysewing.blogspot.com/"
+                %li= link_to "Dipity", "http://www.dipity.com/"
+                %li= link_to "Eat.This.Food", "http://www.eatthisfood.com/"
+                %li= link_to "Groupon", "http://www.groupon.com/"
+                %li= link_to "Mimiess", "http://www.mimiess.com/"
+            .span1
+        %footer.black
+          .row
+            .span6.offset1
+              Awesome $8.95/mo hosting by
+              = link_to "DreamHost", "http://www.dreamhost.com/r.cgi?37017"
+            .span3.pull-right
+              Powered by
+              = link_to "noblog", :controller => "static", :action => "index", :page => "noblog"
 
     :javascript
       var _gaq = _gaq || [];
