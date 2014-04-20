@@ -15,15 +15,30 @@
 %ul.thumbnails
   - entry.data[:photos].each_with_index do |photo, idx|
     %li
-      = link_to image_tag(photo[:thumb_url].gsub(/_s.jpg/, "_q.jpg"), :width => "150", :height => "150"), photo[:thumb_url].gsub(/_s.jpg/, "_b.jpg"), { :title => photo[:title], :class => "fancybox", :rel => "gallery1" }
+      = link_to image_tag(photo[:thumb_url].gsub(/_s.jpg/, "_q.jpg"), :width => "150", :height => "150"),
+        photo[:thumb_url].gsub(/_s.jpg/, "_b.jpg"),
+        { :title => photo[:title], :class => "fancybox", :rel => "gallery1", :id => "photo#{idx}" }
 .clearfix
 %div{:style => "margin-top:20px;"}
   = link_to("View in Flickr", entry.data[:link])
 
 :javascript
+  var thisHash = window.location.hash;
   $(document).ready(function() {
-    $(".fancybox").fancybox({
+    $('.fancybox').fancybox({
       openEffect  : 'none',
-      closeEffect : 'none'
+      closeEffect : 'none',
+      beforeShow: function() {
+        var id = this.element.attr("id");
+        if (id) {
+          window.location.hash = id;
+        }
+      },
+      beforeClose: function() {
+        window.location.hash = "";
+      }
     });
-  });
+    if (window.location.hash) {
+      $(thisHash).trigger('click');
+    }
+  }); // ready
