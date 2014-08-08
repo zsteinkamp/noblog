@@ -9,7 +9,7 @@ class ClientFlickr
   end
 
   def request(method, arguments={})
-    endpoint = "http://api.flickr.com/services/rest/"
+    endpoint = "https://api.flickr.com/services/rest/"
     arg_map = arguments.collect {|arg,value| CGI.escape(arg)+"="+CGI.escape(value.to_s)}.join("&")
     call_uri = "#{endpoint}?api_key=#{@api_key}&method=#{method}&#{arg_map}"
     STDERR.puts call_uri
