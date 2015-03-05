@@ -27,7 +27,9 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '2.15.5'
+gem 'sshkit', '1.5.1'
+gem 'highline', '1.6.21'
 
 # To use debugger
 # gem 'ruby-debug'
