@@ -11,11 +11,10 @@
  *= require_tree .
  *= require_self
  */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
-@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
-@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,600);
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
 body {
-  font-family:"Open Sans","Helvetica Neue",sans-serif;
+  font-family:"Lato","Helvetica Neue",sans-serif;
 }
 .container {
 }
@@ -27,14 +26,22 @@ footer {
 a:hover {
   text-decoration: none;
 }
+.header {
+  height:947px;
+}
+.span2,.span8 {
+  overflow:hidden;
+}
 header {
-  line-height: 50px;
-  padding: 10px 0px 0px;
-  margin-bottom: 10px;
+  transform-origin: 0px 0px;
+  transform:rotate(90deg) translateY(-200px);
+  line-height:184px;
   a.brand {
-    font-family:"Permanent Marker",sans-serif;
-    font-size: 40px;
+    font-family:"Oswald",sans-serif;
+    font-size: 180px;
+    text-transform:lowercase;
     font-weight:bold;
+    color:#b3d4e6;
   }
   .navbar-form {
     text-align: right;
@@ -119,7 +126,9 @@ code {
   background:transparent no-repeat left top;
   color:#333;
   h2 {
-    font-family:"Bree Serif",sans-serif;
+    font-family:"Oswald",sans-serif;
+    font-weight:700;
+    font-size:36px;
   }
 }
 .entry-single .entry {

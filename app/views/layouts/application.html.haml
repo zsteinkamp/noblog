@@ -13,18 +13,15 @@
     = csrf_meta_tags
   %body{ :class => "#{params[:controller]}-#{params[:action]}" }
     .container
-      - unless @no_header_footer
-        %header
-          .row
-            .span4.offset2
+      .row
+        .span2.header
+          - unless @no_header_footer
+            %header
               %a.brand{ :href => "/" } Steinkamp.us
-            .span4
-              %form.navbar-form{ :method => "GET", :action => "" }
-                = text_field_tag :search, params[:search], { :placeholder => "Keyword" }
+              %form.navbar-form{ :method => "GET", :action => "/", :style => "display:none;" }
+                = text_field_tag :search, params[:search], { :placeholder => "Keyword", :style => "width:100px;" }
                 = submit_tag "Search"
-            .span1
-      .row.main-content
-        .span8.offset2
+        .span8.main-content
           = yield
       - unless @no_header_footer
         %footer
