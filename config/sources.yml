@@ -15,10 +15,10 @@ thenobot_flickr:
 #  :source: twitter
 #  :user_id: 6142272
 
-thenobot_soundcloud:
-  :source: soundcloud
-  :user_id: thenobot
-  :api_key: apigee
+#thenobot_soundcloud:
+#  :source: soundcloud
+#  :user_id: thenobot
+#  :api_key: apigee
 
 #thenobot_strava:
 #  :source: strava
