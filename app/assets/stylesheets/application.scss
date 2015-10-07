@@ -8,66 +8,27 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,600);
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,600);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
-body {
-  font-family:"Lato","Helvetica Neue",sans-serif;
-}
-.container {
-}
-header,
-footer {
-  a:hover {
-  }
-}
-a:active,
-a:hover {
-  text-decoration: none;
-}
-.header {
-  height:947px;
-}
-.span2,.span8 {
-  overflow:hidden;
-}
-header {
-  -webkit-transform-origin: 0px 0px;
-  transform:rotate(90deg) translateY(-200px);
-  -webkit-transform:rotate(90deg) translateY(-200px);
-  line-height:184px;
-  a.brand {
-    font-family:"Oswald",sans-serif;
-    font-size: 180px;
-    text-transform:lowercase;
-    font-weight:bold;
-    color:#b3d4e6;
-  }
-  .navbar-form {
-    text-align: right;
-  }
-}
-footer {
-  padding-bottom: 1em;
-  h4 {
-    font-size:1.5em;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    padding-bottom: 0;
-    font-weight: normal;
-  }
-}
-footer.black {
-  padding: 1em 0;
+
+$font-family-sans-serif: "Lato",sans-serif;
+$font-size-base: 18px;
+$headings-font-family: "Oswald",sans-serif;
+$headings-font-weight: 700;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar-brand {
+  font-family: $headings-font-family;
+  font-weight: 700;
+  font-size:150%;
 }
 code {
   white-space: pre;
   display: block;
-}
-.row.main-content {
-  padding-bottom:30px;
 }
 .typepicker {
   text-align:center;
@@ -79,36 +40,36 @@ code {
   position: relative;
   height:33px;
   margin:10px 0;
-}
-.timeline .year {
-  position:absolute;
-  height:38px;
-  top:-18px;
-  border-left:1px solid #ccc;
-  padding-left:5px;
-  font-size:9px;
-}
-.timeline .segment {
-  position:absolute;
-  height:0px;
-  padding-top:20px;
-  overflow:hidden;
-  white-space:nowrap;
-  z-index:1;
-  font-size:12px;
-}
-.timeline .segment:hover {
-  overflow:visible;
-}
-.timeline a.segment:hover {
-  background-color:#F66 !important;
-}
-.timeline .segment .seg_label {
-  background-color:#FFF;
-  padding:3px;
-}
-.timeline .segment .seg_label:hover {
-  text-decoration:none;
+  .year {
+    position:absolute;
+    height:38px;
+    top:-18px;
+    border-left:1px solid #ccc;
+    padding-left:5px;
+    font-size:9px;
+  }
+  .segment {
+    position:absolute;
+    height:0px;
+    padding-top:20px;
+    overflow:hidden;
+    white-space:nowrap;
+    z-index:1;
+    font-size:12px;
+    .seg_label {
+      background-color:#FFF;
+      padding:3px;
+    }
+    .seg_label:hover {
+      text-decoration:none;
+    }
+    &:hover {
+      overflow:visible;
+    }
+  }
+  a.segment:hover {
+    background-color:#F66 !important;
+  }
 }
 
 .entries {
@@ -127,15 +88,8 @@ code {
   margin-left:0;
   background:transparent no-repeat left top;
   color:#333;
-  h2 {
-    font-family:"Oswald",sans-serif;
-    font-weight:700;
-    font-size:36px;
-  }
 }
 .entry-single .entry {
-  font-size:15px;
-  line-height: 1.8;
 }
 .entry-index .entry {
   padding-top:20px;
@@ -193,8 +147,7 @@ code {
 }
 .entry.twitter h2 {
   font-weight:normal;
-  font-size:16px;
-  line-height:24px;
+  font-size:$font-size-base;
 }
 
 img.photo {
@@ -217,30 +170,8 @@ img.alignleft { /* carryover from wordpress */
 .photo_desc {
   text-align:left;
 }
-@media print {
-  header {
-    display: none;
-  }
-  footer {
-    display: none;
-  }
-  body {
-    font-size: 11px;
-  }
-  h1 {
-    font-size:150%;
-    margin-bottom: 10px;
-  }
-  h2 {
-    font-size:130%;
-    margin-bottom: 10px;
-  }
-  h3 {
-    font-size:120%;
-    margin-bottom: 10px;
-  }
-  h4 {
-    font-size:100%;
-    margin-bottom: 10px;
-  }
+footer {
+  background-color: #222;
+  color: #dcdcdc;
+  padding-top: 20px;
 }

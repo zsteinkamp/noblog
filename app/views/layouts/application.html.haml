@@ -12,21 +12,30 @@
     = javascript_include_tag :application
     = csrf_meta_tags
   %body{ :class => "#{params[:controller]}-#{params[:action]}" }
+    - unless @no_header_footer
+      %nav.navbar.navbar-default.navbar-static-top
+        .container
+          .navbar-header
+            %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand{:href => "#"} Steinkamp.us
+          #navbar.navbar-collapse.collapse
+            %ul.nav.navbar-nav.navbar-right
+              %form.navbar-form{ :method => "GET", :action => "/" }
+                %input.input-sm.form-control{ :name => "search", :placeholder => "Search..." }
+                %button.btn.btn-primary.btn-sm{ :type => "submit" } Search
     .container
       .row
-        .span2.header
-          - unless @no_header_footer
-            %header
-              %a.brand{ :href => "/" } Steinkamp.us
-              %form.navbar-form{ :method => "GET", :action => "/", :style => "display:none;" }
-                = text_field_tag :search, params[:search], { :placeholder => "Keyword", :style => "width:100px;" }
-                = submit_tag "Search"
-        .span8.main-content
+        .col-md-8.col-md-offset-2
           = yield
-      - unless @no_header_footer
-        %footer
+    - unless @no_header_footer
+      %footer
+        .container
           .row
-            .span5.offset2
+            .col-md-3.col-md-offset-2.col-sm-4
               %h4 elsewhere
               %ul
                 %li= link_to "Facebook", "http://www.facebook.com/thenobot"
@@ -37,12 +46,7 @@
                 %li= link_to "Vimeo", "http://vimeo.com/thenobot/videos"
                 %li= link_to "Youtube", "http://www.youtube.com/user/thenobot"
                 %li= link_to "360.io", "http://occipital.com/user/9608-221710/zack-steinkamp"
-              %h4 carstuff
-              %ul
-                %li= link_to "Infineon Novice Notes", :controller => "static", :action => "index", :page => "infineon_novice"
-                %li= link_to "Laguna Seca Novice Notes", :controller => "static", :action => "index", :page => "laguna_seca_novice"
-                %li= link_to "Thunderhill Novice Notes", :controller => "static", :action => "index", :page => "thunderhill_novice"
-            .span4
+            .col-md-3.col-sm-4
               %h4 more
               %ul
                 %li= link_to "Resume", :controller => "static", :action => "index", :page => "resume"
@@ -50,7 +54,13 @@
                 %li= link_to "Bike", :controller => "static", :action => "index", :page => "bike"
                 %li= link_to "Sweat Calculator", :controller => "static", :action => "index", :page => "sweat"
                 %li= link_to "About this site", :controller => "static", :action => "index", :page => "noblog"
-              %h4 others
+              %h4 carstuff
+              %ul
+                %li= link_to "Infineon Novice Notes", :controller => "static", :action => "index", :page => "infineon_novice"
+                %li= link_to "Laguna Seca Novice Notes", :controller => "static", :action => "index", :page => "laguna_seca_novice"
+                %li= link_to "Thunderhill Novice Notes", :controller => "static", :action => "index", :page => "thunderhill_novice"
+            .col-md-3.col-sm-4
+              %h4 friends
               %ul
                 %li= link_to "Aperture Capital", "http://aperturecapital.com"
                 %li= link_to "Blue Corduroy", "http://bluecorduroysewing.blogspot.com/"
@@ -58,13 +68,11 @@
                 %li= link_to "Eat.This.Food", "http://www.eatthisfood.com/"
                 %li= link_to "Groupon", "http://www.groupon.com/"
                 %li= link_to "Mimiess", "http://www.mimiess.com/"
-            .span1
-        %footer.black
           .row
-            .span6.offset1
+            .col-md-4.col-md-offset-2.col-sm-6
               Awesome $8.95/mo hosting by
               = link_to "DreamHost", "http://www.dreamhost.com/r.cgi?37017"
-            .span3.pull-right
+            .col-md-4.col-sm-6.text-right
               Powered by
               = link_to "noblog", :controller => "static", :action => "index", :page => "noblog"
 
