@@ -1,44 +1,36 @@
 - @title = entry.disp_title
+= stylesheet_link_tag "ekko-lightbox"
+= stylesheet_link_tag "ekko-lightbox-dark"
+
 :css
-  ul.thumbnails {
-    margin-left:0;
-  }
   ul.thumbnails li {
-    float:left;
-    list-style-type:none;
-    margin:0 10px 10px 0;
+    margin:10px 5px;
+  }
+  .ekko-lightbox-container .img-responsive {
+    max-height: 500px;
+    margin:0 auto;
   }
 %h2= @title
 - unless entry.data[:description].blank?
   %div{:style => "margin-bottom:20px;"}
     = auto_link(entry.data[:description].gsub(/\n\s*\n/, "<br/><br/>").html_safe)
-%ul.thumbnails
+%ul.list-inline.thumbnails
   - entry.data[:photos].each_with_index do |photo, idx|
     %li
-      = link_to image_tag(photo[:thumb_url].gsub(/_s.jpg/, "_q.jpg"), :width => "150", :height => "150"),
-        photo[:thumb_url].gsub(/_s.jpg/, "_b.jpg"),
-        { :title => photo[:title], :class => "fancybox", :rel => "gallery1", :id => "photo#{idx}" }
+      %a{:"data-toggle" => "lightbox", :"data-gallery" => "multiimages", :"data-title" => photo[:title], :href => photo[:thumb_url].gsub(/_s.jpg/, "_b.jpg")}
+        %img{:src => photo[:thumb_url].gsub(/_s.jpg/, "_q.jpg"), :width => "150", :height => "150"}
 .clearfix
 %div{:style => "margin-top:20px;"}
   = link_to("View in Flickr", entry.data[:link])
 
+= javascript_include_tag "ekko-lightbox"
 :javascript
-  var thisHash = window.location.hash;
-  $(document).ready(function() {
-    $('.fancybox').fancybox({
-      openEffect  : 'none',
-      closeEffect : 'none',
-      beforeShow: function() {
-        var id = this.element.attr("id");
-        if (id) {
-          window.location.hash = id;
-        }
-      },
-      beforeClose: function() {
-        window.location.hash = "";
-      }
+  $(document).ready(function ($) {
+    // delegate calls to data-toggle="lightbox"
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      return $(this).ekkoLightbox({
+        always_show_close: true
+      });
     });
-    if (window.location.hash) {
-      $(thisHash).trigger('click');
-    }
-  }); // ready
+  });
