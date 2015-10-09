@@ -2,7 +2,7 @@
   = link_to_if !params[:source].nil?, "All", :source => nil
   - @sources.each do |source|
     \- #{link_to_if params[:source] != source.source, source.source.titleize, :source => source.source, :year => params[:year], :month => params[:month]}
-= render :partial => "timeline"
+/= render :partial => "timeline"
 - if @entries && @entries.length > 0
   %ul.entries
     - @entries.each do |entry|
