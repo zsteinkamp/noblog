@@ -1,10 +1,10 @@
 = hidden_field_tag :addl_fields, "excerpt,content,thumb_url"
 %tr
   %th Excerpt
-  %td= text_area_tag :excerpt, h(@entry.data[:excerpt])
+  %td= text_area_tag :excerpt, h(@entry.data[:excerpt]), :rows => 5, :cols => 80
 %tr
   %th Content
-  %td= text_area_tag :content, h(@entry.data[:content])
+  %td= text_area_tag :content, h(@entry.data[:content]), :rows => 20, :cols => 80
 %tr
   %th Thumb Url
   %td= text_field_tag :thumb_url, h(@entry.data[:thumb_url])
