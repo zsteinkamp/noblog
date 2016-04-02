@@ -26,7 +26,7 @@ class Entry < ActiveRecord::Base
   end
 
   def thumb_url
-    "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    "/1px.gif"
   end
 
   def publish_to_fb
