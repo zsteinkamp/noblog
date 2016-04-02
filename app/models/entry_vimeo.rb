@@ -5,7 +5,7 @@ class EntryVimeo < Entry
   SOURCE_NAME = "vimeo"
 
   def thumb_url
-    data[:thumbnail_url]
+    data[:thumbnail_url] || super
   end
 
   def self.add_new_entries(options = {})
