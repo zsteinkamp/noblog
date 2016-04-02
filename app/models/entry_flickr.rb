@@ -5,7 +5,7 @@ class EntryFlickr < Entry
   SOURCE_NAME = "flickr"
 
   def thumb_url
-    data[:primary_photo_url] || super
+    data[:primary_photo_url].blank? ? super : data[:primary_photo_url]
   end
 
   def self.add_new_entries(options = {})

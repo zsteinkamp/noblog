@@ -5,7 +5,7 @@ class EntrySoundcloud < Entry
   SOURCE_NAME = "soundcloud"
 
   def thumb_url
-    data[:artwork_url] || data[:user]["avatar_url"] || "http://a1.sndcdn.com/images/soundcloud-logo.png" || super
+    data[:artwork_url] || data[:user]["avatar_url"] || "http://a1.sndcdn.com/images/soundcloud-logo.png"
   end
 
   def self.add_new_entries(options = {})

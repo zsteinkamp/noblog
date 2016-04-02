@@ -5,7 +5,7 @@ class EntryYoutube < Entry
   SOURCE_NAME = "youtube"
 
   def thumb_url
-    "http://i.ytimg.com/vi/#{data[:id]}/default.jpg" || super
+    "http://i.ytimg.com/vi/#{data[:id]}/default.jpg"
   end
 
   def self.add_new_entries(options = {})
