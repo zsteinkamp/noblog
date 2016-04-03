@@ -11,9 +11,8 @@
 development:
   adapter: mysql2
   encoding: utf8
-  reconnect: false
+  reconnect: true
   database: noblog_development
-  pool: 5
   host: mysql.thenobot.org
   username: nobot
   password: nobot2db4user
@@ -24,9 +23,8 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  reconnect: false
+  reconnect: true
   database: noblog_test
-  pool: 5
   host: mysql.thenobot.org
   username: nobot
   password: nobot2db4user
@@ -34,9 +32,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  reconnect: false
+  reconnect: true
   database: noblog_production
-  pool: 5
   host: mysql.thenobot.org
   username: nobot
   password: nobot2db4user
