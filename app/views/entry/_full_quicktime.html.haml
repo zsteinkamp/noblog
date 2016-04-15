@@ -1,4 +1,4 @@
 - @title = entry.disp_title
 %h2= @title
-%embed{:height => "480", :scale => "aspect", :src => "http://video.thenobot.org/#{entry.uid}", :width => "640"}
-= auto_link(entry.data[:description].gsub(/\n\s*\n/, "<br/><br/>").html_safe)
+%video{:height => "480", :width => "640", :src => "http://video.thenobot.org/#{entry.uid}", :controls => true}
+%p= auto_link(entry.data[:description].gsub(/\n\s*\n/, "<br/><br/>").html_safe)
