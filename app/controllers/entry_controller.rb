@@ -2,13 +2,18 @@ require 'digest/md5'
 
 class EntryController < ApplicationController
   def index
-    @sources = Entry.all(:select => "source", :group => "source")
+    @group_sources = {
+      'pictures' => ['flickr'],
+      'videos' => ['quicktime','youtube','vimeo'],
+      'words' => ['post','twitter'],
+      'sounds' => ['soundcloud']
+    }
 
     conditions = [ "`disabled` = ?", false ]
 
     unless params[:source].blank?
-      conditions[0] += " AND `source` = ?"
-      conditions.push params[:source]
+      conditions[0] += " AND `source` IN (?)"
+      conditions.push @group_sources[params[:source]] || [params[:source]]
     end
 
     unless params[:search].blank?
@@ -49,9 +54,12 @@ class EntryController < ApplicationController
 
       tl_conditions = [ "`disabled` = ?", false ]
       unless params[:source].blank?
-        tl_conditions[0] += " AND `source` = ?"
-        tl_conditions.push params[:source]
+        tl_conditions[0] += " AND `source` IN (?)"
+        tl_conditions.push @group_sources[params[:source]] || params[:source]
       end
+
+      logger.info(tl_conditions.inspect)
+      logger.info(@group_sources[params[:source]])
 
       Entry.all(:select => "pub_date, source", :conditions => tl_conditions, :order => "pub_date").each do |entry|
         hkey = entry.pub_date.strftime("%Y-%m")
