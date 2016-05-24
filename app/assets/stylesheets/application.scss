@@ -151,6 +151,12 @@ code {
   font-size:$font-size-base;
 }
 
+p.caption {
+  margin-bottom: 0;
+  font-style: italic;
+  color: #666;
+}
+
 img.photo {
   border:40px solid black;
   margin-left:-40px;
