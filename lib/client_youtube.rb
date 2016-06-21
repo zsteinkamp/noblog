@@ -4,7 +4,7 @@ require "publish_fb"
 
 class ClientYoutube
   def initialize(options = {})
-    @username = options[:channel_id] || "UCuTj9ukcxpg4esbAaxUW6UA"
+    @channel_id = options[:channel_id] || "UCuTj9ukcxpg4esbAaxUW6UA"
   end
 
   def get_videos
