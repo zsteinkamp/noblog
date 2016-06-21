@@ -8,7 +8,7 @@ class ClientYoutube
   end
 
   def get_videos
-    endpoint = "https://www.youtube.com/feeds/videos.xml?channel=#{@channel_id}"
+    endpoint = "https://www.youtube.com/feeds/videos.xml?channel_id=#{@channel_id}"
     response = REXML::Document.new(open(endpoint).read)
 
     response.elements.collect("feed/entry") do |item|
