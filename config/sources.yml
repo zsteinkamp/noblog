@@ -1,6 +1,10 @@
+zs_youtube:
+  :source: youtube
+  :channel_id: UCuTj9ukcxpg4esbAaxUW6UA
+
 thenobot_youtube:
   :source: youtube
-  :username: thenobot
+  :channel_id: UCV_q6WWviow5obtVmPODovg
 
 thenobot_vimeo:
   :source: vimeo

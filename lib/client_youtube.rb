@@ -4,11 +4,11 @@ require "publish_fb"
 
 class ClientYoutube
   def initialize(options = {})
-    @username = options[:username] || "thenobot"
+    @username = options[:channel_id] || "UCuTj9ukcxpg4esbAaxUW6UA"
   end
 
   def get_videos
-    endpoint = "https://www.youtube.com/feeds/videos.xml?user=#{@username}"
+    endpoint = "https://www.youtube.com/feeds/videos.xml?channel=#{@channel_id}"
     response = REXML::Document.new(open(endpoint).read)
 
     response.elements.collect("feed/entry") do |item|
