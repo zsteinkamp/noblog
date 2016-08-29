@@ -1,19 +1,19 @@
-#zs_youtube:
-#  :source: youtube
-#  :channel_id: UCuTj9ukcxpg4esbAaxUW6UA
-#
-#thenobot_youtube:
-#  :source: youtube
-#  :channel_id: UCV_q6WWviow5obtVmPODovg
-#
-#thenobot_vimeo:
-#  :source: vimeo
-#  :username: thenobot
-#
-#thenobot_flickr:
-#  :source: flickr
-#  :user_id: "74677593@N00"
-#  :api_key: "2b78ee62a1027fb4e72ce9c1d935a0e8"
+zs_youtube:
+  :source: youtube
+  :channel_id: UCuTj9ukcxpg4esbAaxUW6UA
+
+thenobot_youtube:
+  :source: youtube
+  :channel_id: UCV_q6WWviow5obtVmPODovg
+
+thenobot_vimeo:
+  :source: vimeo
+  :username: thenobot
+
+thenobot_flickr:
+  :source: flickr
+  :user_id: "74677593@N00"
+  :api_key: "2b78ee62a1027fb4e72ce9c1d935a0e8"
 
 zs_instagram:
   :source: instagram
