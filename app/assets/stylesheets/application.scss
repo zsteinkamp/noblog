@@ -150,6 +150,14 @@ code {
   font-weight:normal;
   font-size:$font-size-base;
 }
+.entry.instagram {
+  background-image: image-url("site_icons/instagram.png");
+}
+
+img.instagram {
+  border:40px solid black;
+  margin:40px 0;
+}
 
 p.caption {
   margin-bottom: 0;

@@ -3,7 +3,7 @@ require 'digest/md5'
 class EntryController < ApplicationController
   def index
     @group_sources = {
-      'pictures' => ['flickr'],
+      'pictures' => ['flickr','instagram'],
       'videos' => ['quicktime','youtube','vimeo'],
       'words' => ['post','twitter'],
       'sounds' => ['soundcloud']

@@ -1,0 +1,6 @@
+- @title = entry.disp_title
+%img.instagram.img-responsive{:width => entry.data[:image]['width'], :height => entry.data[:image]['height'], :src => entry.data[:image]['url'], :alt => @title}
+%p
+  = @title.html_safe
+%p
+  %a{:href => entry.data[:link]} View in Instagram
