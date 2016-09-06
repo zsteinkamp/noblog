@@ -50,10 +50,11 @@ class ClientFlickr
     response = request('flickr.photos.getInfo', { "photo_id" => photo_id.to_s } )
     {
       :id          => response.elements["photo"].attributes["id"],
+      :media       => response.elements["photo"].attributes["media"],
       :pub_date    => response.elements["photo/dates"].attributes["taken"],
       :title       => response.elements["photo/title"].text,
       :description => response.elements["photo/description"].text,
-      :thumb_url => "http://farm#{response.elements["photo"].attributes["farm"]}.static.flickr.com/#{response.elements["photo"].attributes["server"]}/#{response.elements["photo"].attributes["id"]}_#{response.elements["photo"].attributes["secret"]}_s.jpg",
+      :thumb_url   => "http://farm#{response.elements["photo"].attributes["farm"]}.static.flickr.com/#{response.elements["photo"].attributes["server"]}/#{response.elements["photo"].attributes["id"]}_#{response.elements["photo"].attributes["secret"]}_s.jpg",
     }
   end
 
@@ -72,7 +73,7 @@ class ClientFlickr
   def get_set_photos(set_id)
     photos = []
     response = request('flickr.photosets.getPhotos', { "photoset_id" => set_id.to_s })
-    response.elements.each("photoset/photo") do |p| 
+    response.elements.each("photoset/photo") do |p|
       photos << get_photo_info(p.attributes["id"])
     end
     photos
