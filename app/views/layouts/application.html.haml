@@ -38,18 +38,24 @@
             .col-md-3.col-md-offset-2.col-sm-4
               %h4 elsewhere
               %ul
+                %li= link_to "360.io", "http://occipital.com/user/9608-221710/zack-steinkamp"
+                %li= link_to "Bandcamp", "https://zacksteinkamp.bandcamp.com/"
                 %li= link_to "Facebook", "http://www.facebook.com/thenobot"
-                %li= link_to "LinkedIn", "http://www.linkedin.com/zsteinkamp"
                 %li= link_to "Flickr", "http://www.flickr.com/photos/thenobot/"
+                %li= link_to "Google Play", "https://play.google.com/store/music/artist/Zack_Steinkamp?id=Ahvn4wxah4srjesbrcispbgac2y"
+                %li= link_to "iTunes", "https://itunes.apple.com/us/artist/zack-steinkamp/id1217691470"
+                %li= link_to "LinkedIn", "http://www.linkedin.com/zsteinkamp"
+                %li= link_to "Soundcloud", "https://soundcloud.com/thenobot/tracks"
+                %li= link_to "Spotify", "https://open.spotify.com/artist/4zlbGPYkjV7EpxXHyfZNAh"
                 %li= link_to "Strava", "http://app.strava.com/athletes/1752986"
                 %li= link_to "Twitter", "http://www.twitter.com/zsteinkamp"
-                %li= link_to "Vimeo", "http://vimeo.com/thenobot/videos"
                 %li= link_to "Youtube", "http://www.youtube.com/user/thenobot"
-                %li= link_to "360.io", "http://occipital.com/user/9608-221710/zack-steinkamp"
             .col-md-3.col-sm-4
               %h4 more
               %ul
                 %li= link_to "Resume", :controller => "static", :action => "index", :page => "resume"
+                %li= link_to "Music", :controller => "static", :action => "index", :page => "music"
+                %li= link_to "Songs", :controller => "static", :action => "index", :page => "songs"
                 %li= link_to "Hikes/Runs", :controller => "static", :action => "index", :page => "hikes"
                 %li= link_to "Bike", :controller => "static", :action => "index", :page => "bike"
                 %li= link_to "Sweat Calculator", :controller => "static", :action => "index", :page => "sweat"

@@ -21,6 +21,8 @@ Noblog::Application.routes.draw do
   # static
   match 'resume' => 'static#index', :page => 'resume'
   match 'sweat'  => 'static#index', :page => 'sweat'
+  match 'music'  => 'static#index', :page => 'music'
+  match 'songs'  => 'static#index', :page => 'songs'
   match 'hikes'  => 'static#index', :page => 'hikes'
   match 'bike'   => 'static#index', :page => 'bike'
   match 'links'  => 'static#index', :page => 'links'
