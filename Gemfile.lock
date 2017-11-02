@@ -32,7 +32,7 @@ GEM
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.0.4)
-    capistrano (2.15.5)
+    capistrano (2.15.9)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -135,16 +135,20 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.1.1)
-  capistrano (= 2.15.5)
+  capistrano (~> 2.15.9)
   coffee-rails (~> 3.2.1)
   haml-rails (~> 0.4.0)
   highline (= 1.6.21)
   jquery-rails
   json
   mysql2 (~> 0.3.10)
+  net-ssh (< 4.0)
   rails (= 3.2.13)
   rinku
   sass-rails (>= 3.2)
   sshkit (= 1.5.1)
   therubyracer
   uglifier (>= 1.0.3)
+
+BUNDLED WITH
+   1.16.0

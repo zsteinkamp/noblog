@@ -28,7 +28,8 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano', '2.15.5'
+gem "capistrano", "~> 2.15.9"
+gem "net-ssh", "< 4.0"
 gem 'sshkit', '1.5.1'
 gem 'highline', '1.6.21'
 
