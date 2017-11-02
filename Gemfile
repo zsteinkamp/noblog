@@ -31,6 +31,7 @@ gem 'jquery-rails'
 gem "capistrano", "~> 2.15.9"
 gem "net-ssh", "< 4.0"
 gem 'sshkit', '1.5.1'
+gem 'colorize', '0.6.0'
 gem 'highline', '1.6.21'
 
 # To use debugger
