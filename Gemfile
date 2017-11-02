@@ -5,12 +5,12 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', "~> 0.3.10"
 
 gem 'json'
 
 gem "haml-rails", "~> 0.4.0"
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass', '~> 3.1.1'
 gem 'sass-rails',   '>= 3.2'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'rinku'
