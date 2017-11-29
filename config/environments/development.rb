@@ -34,4 +34,7 @@ Noblog::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
 end
