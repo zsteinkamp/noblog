@@ -15,7 +15,7 @@ class EntryTwitter < Entry
     elsif (matches = data[:title].match(/(http:\/\/tweetphoto.com\/\d+)/))
       return "http://tweetphotoapi.com/api/TPAPI.svc/imagefromurl?size=small&url=#{matches[1]}"
     end
-    data[:thumb_url].blank? ? super : data[:thumb_url]
+    data[:thumb_url].blank? ? nil : data[:thumb_url]
   end
   
   def fb_link

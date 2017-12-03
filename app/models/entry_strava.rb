@@ -6,7 +6,7 @@ class EntryStrava < Entry
 
   def thumb_url
     # choose run or bike
-    "strava_#{data[:activity_type].downcase}_150.png" || super
+    "strava_#{data[:activity_type].downcase}_150.png" || nil
   end
 
   def self.add_new_entries(options = {})
