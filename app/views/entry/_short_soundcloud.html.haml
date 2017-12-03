@@ -1,4 +1,4 @@
-- if entry.thumb_url
+- unless entry.thumb_url.blank?
   .image_wrapper
     = link_to image_tag(entry.thumb_url), entry.data[:permalink_url]
 %h2= link_to entry.disp_title, entry.data[:permalink_url]
