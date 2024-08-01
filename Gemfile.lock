@@ -29,8 +29,11 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     arel (3.0.3)
-    bootstrap-sass (3.2.0.2)
-      sass (~> 3.2)
+    autoprefixer-rails (10.4.19.0)
+      execjs (~> 2)
+    bootstrap-sass (3.4.1)
+      autoprefixer-rails (>= 5.2.1)
+      sassc (>= 2.0.0)
     builder (3.0.4)
     capistrano (2.15.9)
       highline
@@ -49,6 +52,7 @@ GEM
     concurrent-ruby (1.0.5)
     erubis (2.7.0)
     execjs (2.7.0)
+    ffi (1.17.0)
     haml (4.0.7)
       tilt
     haml-rails (0.4)
@@ -106,7 +110,8 @@ GEM
     rdoc (3.9.5)
     ref (2.0.0)
     rinku (2.0.0)
-    sass (3.4.25)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -132,7 +137,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.2.0)
+  bootstrap-sass (~> 3.4.1)
   capistrano (~> 2.15.9)
   coffee-rails (~> 3.2.1)
   colorize (= 0.6.0)
