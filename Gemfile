@@ -10,7 +10,7 @@ gem 'mysql2', "~> 0.3.10"
 gem 'json'
 
 gem "haml-rails", "~> 0.4.0"
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'rinku'
 gem 'therubyracer', :platforms => :ruby
